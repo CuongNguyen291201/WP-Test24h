@@ -1,0 +1,484 @@
+p {
+    margin: 0 !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: black !important;
+}
+
+.card {
+    border: none !important;
+}
+
+.card-body {
+    padding: 0.5rem 1rem !important;
+}
+
+.categories-course {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.course {
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+    padding: 8px 20px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.course:hover {
+    color: #000;
+    background: #FFE49A;
+}
+
+.course-default {
+    padding-top: 50px;
+}
+
+.course-name,
+.course-preview,
+.course-price,
+.course-desc {
+    padding-left: 10px;
+}
+
+.course-name {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.course-preview {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.course-price {
+    font-size: 24px;
+    font-weight: 500;
+    border-bottom: 1px solid #EDEDED;
+}
+
+.course-desc {
+    font-size: 12px;
+    font-weight: 500;
+    color: #8C8C8B;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* -------------- */
+
+.child-categories {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    font-weight: 500;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+/*.category-child {*/
+/*    cursor: pointer;*/
+/*    padding: 16px 36px;*/
+/*    transition: 0.3s;*/
+/*    border-radius: 3px;*/
+/*    font-size: 18px;*/
+/*}*/
+
+.category-child:hover {
+    background: #FDE9B1;
+}
+
+.posts-category-id {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+
+.post-category {
+    color: black;
+    text-decoration: none !important;
+    font-size: 20px;
+    font-weight: 400;
+    padding-top: 20px;
+}
+
+/* ------- loading dot ----------- */
+.snippet {
+    position: relative;
+    text-align: center;
+    margin: 1rem auto;
+}
+
+.dot-pulse {
+    margin: 0 auto;
+    position: relative;
+    left: -9999px;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+    box-shadow: 9999px 0 0 -5px #9880ff;
+    animation: dotPulse 1.5s infinite linear;
+    animation-delay: .25s;
+}
+
+.dot-pulse::before,
+.dot-pulse::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: #9880ff;
+    color: #9880ff;
+}
+
+.dot-pulse::before {
+    box-shadow: 9984px 0 0 -5px #9880ff;
+    animation: dotPulseBefore 1.5s infinite linear;
+    animation-delay: 0s;
+}
+
+.dot-pulse::after {
+    box-shadow: 10014px 0 0 -5px #9880ff;
+    animation: dotPulseAfter 1.5s infinite linear;
+    animation-delay: .5s;
+}
+
+@keyframes dotPulseBefore {
+    0% {
+        box-shadow: 9984px 0 0 -5px #9880ff;
+    }
+
+    30% {
+        box-shadow: 9984px 0 0 2px #9880ff;
+    }
+
+    60%,
+    100% {
+        box-shadow: 9984px 0 0 -5px #9880ff;
+    }
+}
+
+@keyframes dotPulse {
+    0% {
+        box-shadow: 9999px 0 0 -5px #9880ff;
+    }
+
+    30% {
+        box-shadow: 9999px 0 0 2px #9880ff;
+    }
+
+    60%,
+    100% {
+        box-shadow: 9999px 0 0 -5px #9880ff;
+    }
+}
+
+@keyframes dotPulseAfter {
+    0% {
+        box-shadow: 10014px 0 0 -5px #9880ff;
+    }
+
+    30% {
+        box-shadow: 10014px 0 0 2px #9880ff;
+    }
+
+    60%,
+    100% {
+        box-shadow: 10014px 0 0 -5px #9880ff;
+    }
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-contact input,
+select,
+option,
+textarea {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.post-item-ielts-listening {
+    margin-bottom: 50px;
+}
+
+.post-item-ielts-listening .post-item-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+}
+
+.post-item-ielts-listening .post-item-read-more {
+    text-decoration: none !important;
+    background-color: #575757;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.post-item-desc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    padding-bottom: 20px;
+}
+
+.post-item-desc img {
+    width: 180px;
+    height: 130px;
+    object-fit: cover;
+    padding-right: 20px;
+}
+
+.post-item-desc p {
+    flex: auto;
+}
+
+.recent-posts .post-item-ielts-listening .post-item-desc p {
+    display: -webkit-box;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.recent-posts .post-item-ielts-listening img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+}
+
+/* -------- Pagination IELTS Listening ----------- */
+
+.post-pagination {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.post-prev,
+.post-next {
+    color: white;
+    background-color: #20B2AA;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    outline: none;
+}
+
+.number-page {
+    list-style: none;
+    height: 45px;
+    width: 45px;
+    margin: 0 3px;
+    line-height: 45px;
+    border-radius: 50%;
+    background-color: #20B2AA;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* --------- Course ------------ */
+
+.course-collapse {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name-course-child {
+    padding-left: 20px;
+}
+
+.courses-option {
+    /*background: #ffffff;*/
+    /*height: 100vh;*/
+    border-radius: 10px 10px 0 0;
+    /*box-shadow: 2px 2px 15px rgba(179, 179, 179, 0.25);*/
+    overflow: auto;
+}
+
+.courses-category {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*height: 100vh;*/
+    padding: 24px;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 4px rgba(179, 179, 179, 0.25);
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.course-item {
+    width: 30%;
+    background: #FFFFFF;
+    padding-bottom: 10px;
+}
+
+.course-item img {
+    width: 265px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.collapse {
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.collapse div:hover {
+    background: #FFEFC3;
+}
+
+.posts-ielts-online {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*background: #FFFFFF;*/
+    /*box-shadow: 2px 2px 15px rgba(179, 179, 179, 0.33);*/
+    /*border-radius: 10px;*/
+    padding: 0 20px;
+    height: 500px;
+    overflow: auto;
+}
+
+.posts-ielts-online a {
+    color: #000;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.post-item-ielts-online {
+    width: 30%;
+    padding-bottom: 10px;
+}
+
+.post-item-ielts-online img {
+    width: 270px;
+    height: 152px;
+    object-fit: cover;
+}
+
+.category-child {
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.test-category {
+    /*background: #FFFFFF;*/
+    /*box-shadow: 2px 2px 15px rgba(179, 179, 179, 0.33);*/
+    border-radius: 10px 10px 0 0;
+    height: 522px;
+    overflow: auto;
+}
+
+.course-ielts:focus {
+    background: #FFE49A;
+}
+
+.card:focus {
+    background: #FFEFC3;
+}
+
+.category-child a {
+    color: #000000;
+    font-size: 14px;
+}
+
+.category-child a:hover {
+    color: #FF9200 !important;
+}
+
+.category-grandchild a {
+    color: #000000;
+    font-size: 14px;
+}
+
+.category-grandchild a:hover {
+    color: #FF9200 !important;
+}
+
+
+/* --------- Responsive ------------ */
+@media all and (max-width: 426px) {
+    .course-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .course-item img {
+        text-align: center;
+    }
+
+
+    .posts-ielts-online,
+    .courses-category {
+        display: block;
+    }
+
+    .post-item-ielts-online {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .courses-option {
+        height: 100%;
+    }
+}
+
+@media all and (max-width: 767px) {
+    .courses-option {
+        height: 100%;
+    }
+}
+
+@media all and (max-width: 768px) and (min-width: 426px) {
+
+    .course,
+    .category-child {
+        font-size: 15px;
+    }
+    
+    .recent-posts .post-item-ielts-listening .post-item-name {
+        font-size: 16px;
+    }
+}
