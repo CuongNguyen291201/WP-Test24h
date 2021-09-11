@@ -154,88 +154,50 @@ jQuery(document).ready(function($) {
     
     let only_childs = php_data.child_categories.filter(item => item.category_parent === 1);
     let only_grandchilds = php_data.child_categories.filter(item => item.category_parent != 1);
-    let is_grandchilds = [];
-    
+
     only_childs.map((item, index) => {
-        only_grandchilds.map((item_gc) => {
-            if (item_gc.category_parent === item.cat_ID) {
-                is_grandchilds.push(item.cat_ID);
-                // $(".test-category").append(
-                //     `
-                //     <div class="category-${item.cat_ID}">
-                //         <div class="category-child category-child-${item.cat_ID}" type="button" 
-                //             data-bs-toggle="collapse" data-bs-target="#collapse${item.cat_ID}" 
-                //             aria-expanded="false" aria-controls="collapse${item.cat_ID}">
-                //             ${item.cat_name} <i class="fas fa-chevron-down"></i>
-                //         </div>
-        
-                //         <div class="collapse" id="collapse${item.cat_ID}" data="${item.cat_ID}">
-                //             <div class="card card-body name-cate-child-${item_gc.cat_ID}" tabindex="${item.cat_ID}">${item_gc.cat_name}</div>
-                //         </div>
-                //     </div>
-                //     `
-                // );
-                
-                
-                $(".test-category").append(
-                    `
-                    <div class="category-${item.cat_ID}">
-                        <div class="d-flex justify-content-between align-items-center category-child category-child-${item.cat_ID}">
-                            <a href="${php_data.url}/${item.slug}">${item.cat_name}</a>
-                            <div class="category-child category-child-${item.cat_ID}" type="button" 
-                                data-bs-toggle="collapse" data-bs-target="#collapse${item.cat_ID}" 
-                                aria-expanded="false" aria-controls="collapse${item.cat_ID}">
-                                <i class="fas fa-chevron-down"></i>
-                            </div>
+        let gr_cat = '';
+        only_grandchilds.map((item2, index2) => {
+            if (item2.category_parent === item.cat_ID) {
+                gr_cat +=
+                `
+                    <div class="collapse" id="collapse${item.cat_ID}" data="${item.cat_ID}">
+                        <div class="d-flex justify-content-between align-items-center card-body category-grandchild">
+                            <a href="${php_data.url}/ielts/${item.slug}/${item2.slug}">${item2.cat_name}</a>
+                            <div class="name-cate-child-${item2.cat_ID}" tabindex="${item.cat_ID}"><i class="fas fa-chevron-right"></i></div>
                         </div>
-        
-                        <div class="collapse" id="collapse${item.cat_ID}" data="${item.cat_ID}">
-                            <div class="d-flex justify-content-between align-items-center card-body category-grandchild">
-                                <a href="${php_data.url}/${item_gc.slug}">${item_gc.cat_name}</a>
-                                <div class="name-cate-child-${item_gc.cat_ID}" tabindex="${item.cat_ID}"><i class="fas fa-chevron-right"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    `
-                );
-                
+                    </div>   
+                `
             }
         });
+
+        let cat = `
+            <div class="d-flex justify-content-between align-items-center category-child category-child-${item.cat_ID}">
+                <a href="${php_data.url}/ielts/${item.slug}">${item.cat_name}</a>
+                <div class="category-child category-child-${item.cat_ID}" type="button" 
+                    data-bs-toggle="collapse" data-bs-target="#collapse${item.cat_ID}" 
+                    aria-expanded="false" aria-controls="collapse${item.cat_ID}">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+        `;
+
+        let cat_single = `
+            <div class="d-flex justify-content-between align-items-center category-child category-child-${item.cat_ID}">
+                <a href="${php_data.url}/ielts/${item.slug}">${item.cat_name}</a>
+                <div class="category-child category-child-${item.cat_ID}" type="button" 
+                    data-bs-toggle="collapse" data-bs-target="#collapse${item.cat_ID}" 
+                    aria-expanded="false" aria-controls="collapse${item.cat_ID}">
+                </div>
+            </div>
+        `;
+
+        let res = '';
+        gr_cat === '' ? res = `<div class="category-${item.cat_ID}">` + cat_single + `</div>` : res = `<div class="category-${item.cat_ID}">` + cat + gr_cat + `</div>`;
+
+        $(".test-category").append(res);
     });
 
-    for (let j = 0; j < only_childs.length; j++) {
-        let check=0;
-        for (let i = 0; i < is_grandchilds.length; i++) {
-            if (only_childs[j].cat_ID != is_grandchilds[i]) check=1;
-            else {
-                check=0;
-                break;
-            }
-        }
-        if (check===1) {
-            $(".test-category").append(
-                // `
-                // <div class="category-${only_childs[j].cat_ID}">
-                //     <div class="category-child category-child-${only_childs[j].cat_ID}" type="button" 
-                //         data-bs-toggle="collapse" data-bs-target="#collapse${only_childs[j].cat_ID}" 
-                //         aria-expanded="false" aria-controls="collapse${only_childs[j].cat_ID}">
-                //         ${only_childs[j].cat_name} 
-                //     </div>
-                // </div>
-                // `
-                
-                `
-                <div class="category-${only_childs[j].cat_ID}">
-                    <div class="category-child category-child-${only_childs[j].cat_ID}">
-                        <a href="${php_data.url}/${only_childs[j].slug}">${only_childs[j].cat_name}</a>
-                    </div>
-                </div>
-                `
-                
-            );
-        }
-    }
-    
     // Post theo Category
     let isFrontPage = +php_data.front_page;
     
