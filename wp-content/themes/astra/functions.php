@@ -222,7 +222,7 @@ function load_js_assets()
 	// Call api Khoá học
 	$url = 'https://test24h.vn:1443/api/all-categories';
 	$body_categories = array(
-		"limitCourses" => 6,
+		// "limitCourses" => 6,
 	);
 	$args_categories = array(
 		'method'      => 'POST',
