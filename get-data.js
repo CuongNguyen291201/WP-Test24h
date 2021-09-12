@@ -122,7 +122,7 @@ jQuery(document).ready(function($) {
             $(`.${classAppend}`).append(
                 `
                     <div class="course-item">
-                        <a href="https://test24h.vn/${slug}/${item.slug}"><img src="${item.avatar ? item.avatar : 'https://storage.googleapis.com/ielts-fighters.appspot.com/elearning-react/2021/06/10/62934497.png'}" /></a>
+                        <a href="https://app.capnhatxuhuong.xyz/${slug}/${item.slug}"><img src="${item.avatar ? item.avatar : 'https://storage.googleapis.com/ielts-fighters.appspot.com/elearning-react/2021/06/10/62934497.png'}" /></a>
                         <p class="course-name">${item.name}</p>
                         <p class="course-preview">Đánh giá: 4.5/5 (123 preview)</p>
                         <p class="course-price">${item.cost.toLocaleString()} VNĐ</p>
