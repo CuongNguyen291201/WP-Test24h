@@ -124,7 +124,7 @@ jQuery(document).ready(function($) {
                 $(`.${classAppend}`).append(
                     `
                         <div class="course-item">
-                        <a href="https://app.test24h.com/${slug}/${item.slug}"><img src="${item.avatar ? item.avatar : 'https://storage.googleapis.com/ielts-fighters.appspot.com/elearning-react/2021/06/10/62934497.png'}" /></a>
+                        <a href="https://app.test24h.vn/${slug}/${item.slug}"><img src="${item.avatar ? item.avatar : 'https://storage.googleapis.com/ielts-fighters.appspot.com/elearning-react/2021/06/10/62934497.png'}" /></a>
                         <p class="course-name">${item.name}</p>
                         <p class="course-preview">Đánh giá: 4.5/5 (123 preview)</p>
                         <p class="course-price">${item.cost.toLocaleString()} VNĐ</p>
@@ -181,7 +181,7 @@ jQuery(document).ready(function($) {
         let cat = `
             <div class="d-flex justify-content-between align-items-center category-child category-child-${item.cat_ID}">
                 <a href="${php_data.url}/ielts/${item.slug}">${item.cat_name}</a>
-                <div class="category-child category-child-${item.cat_ID}" type="button" 
+                <div class="category-child category-child-${item.cat_ID}" 
                     data-bs-toggle="collapse" data-bs-target="#collapse${item.cat_ID}" 
                     aria-expanded="false" aria-controls="collapse${item.cat_ID}">
                     <i class="fas fa-chevron-down"></i>
@@ -192,7 +192,7 @@ jQuery(document).ready(function($) {
         let cat_single = `
             <div class="d-flex justify-content-between align-items-center category-child category-child-${item.cat_ID}">
                 <a href="${php_data.url}/ielts/${item.slug}">${item.cat_name}</a>
-                <div class="category-child category-child-${item.cat_ID}" type="button" 
+                <div class="category-child category-child-${item.cat_ID}" 
                     data-bs-toggle="collapse" data-bs-target="#collapse${item.cat_ID}" 
                     aria-expanded="false" aria-controls="collapse${item.cat_ID}">
                 </div>
