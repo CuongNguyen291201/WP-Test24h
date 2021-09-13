@@ -65,71 +65,74 @@ jQuery(document).ready(function($) {
 
     // Hiển thị danh mục và khóa học
     const categoriesCourse = JSON.parse(php_data.categories);
-    // categoriesCourse.map((item, index) => {
-    //     $(".courses-option").append(
-    //         `
-    //             <div class="course course-${item.slug}" data=${item.slug} key=${index}>
-    //                 KHÓA HỌC ${item.name}
+    categoriesCourse.map((item, index) => {
+        $(".courses-option").append(
+            `
+                <div class="course course-${item.slug}" data=${item.slug} key=${index}>
+                    KHÓA HỌC ${item.name}
+                </div>
+            `
+        );
+    });
+
+
+    // $(".courses-option").append(
+    //     `
+    //     <div class="course-1">
+    //         <div class="course course-ielts" data="ielts" tabindex="0">
+    //             KHÓA HỌC IELTS
+    //         </div>
+    //     </div>
+    //     <div class="course-2">
+    //         <div class="course-child course-child-1" type="button" 
+    //             data-bs-toggle="collapse" data-bs-target="#collapse1" 
+    //             aria-expanded="false" aria-controls="collapse1">
+    //             <div class="course course-collapse">
+    //                 KHÓA HỌC SAT <i class="fas fa-chevron-down"></i>
     //             </div>
-    //         `
-    //     );
-    // });
+    //         </div>
 
-
-    $(".courses-option").append(
-        `
-        <div class="course-1">
-            <div class="course course-ielts" data="ielts" tabindex="0">
-                KHÓA HỌC IELTS
-            </div>
-        </div>
-        <div class="course-2">
-            <div class="course-child course-child-1" type="button" 
-                data-bs-toggle="collapse" data-bs-target="#collapse1" 
-                aria-expanded="false" aria-controls="collapse1">
-                <div class="course course-collapse">
-                    KHÓA HỌC SAT <i class="fas fa-chevron-down"></i>
-                </div>
-            </div>
-
-            <div class="collapse" id="collapse1" data="1">
-                <div class="card name-course-child" tabindex="10">
-                    <div class="course course-sat-1" data="sat-1">
-                        KHÓA HỌC SAT 1
-                    </div>
-                </div>
-                <div class="card name-course-child" tabindex="11">
-                    <div class="course course-sat-2" data="sat-2">
-                        KHÓA HỌC SAT 2
-                    </div>
-                </div>
-            </div>
-        </div>
+    //         <div class="collapse" id="collapse1" data="1">
+    //             <div class="card name-course-child" tabindex="10">
+    //                 <div class="course course-sat-1" data="sat-1">
+    //                     KHÓA HỌC SAT 1
+    //                 </div>
+    //             </div>
+    //             <div class="card name-course-child" tabindex="11">
+    //                 <div class="course course-sat-2" data="sat-2">
+    //                     KHÓA HỌC SAT 2
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div>
         
-        `
-    );
+    //     `
+    // );
 
 
 
 
 
     const coursesIELTS = categoriesCourse[0].courses;
-    const coursesSAT1 = categoriesCourse[1].courses;
-    const coursesSAT2 = categoriesCourse[2].courses;
+    // const coursesSAT1 = categoriesCourse[1].courses;
+    // const coursesPreAP = categoriesCourse[2].courses;
+    // const coursesAP = categoriesCourse[3].courses;
 
     const getCourse = (name, slug, classAppend = "courses-category") => (
         name.map((item, index) => {
-            $(`.${classAppend}`).append(
-                `
-                    <div class="course-item">
-                        <a href="https://app.capnhatxuhuong.xyz/${slug}/${item.slug}"><img src="${item.avatar ? item.avatar : 'https://storage.googleapis.com/ielts-fighters.appspot.com/elearning-react/2021/06/10/62934497.png'}" /></a>
+            if (item.status > 0) {
+                $(`.${classAppend}`).append(
+                    `
+                        <div class="course-item">
+                        <a href="https://app.test24h.com/${slug}/${item.slug}"><img src="${item.avatar ? item.avatar : 'https://storage.googleapis.com/ielts-fighters.appspot.com/elearning-react/2021/06/10/62934497.png'}" /></a>
                         <p class="course-name">${item.name}</p>
                         <p class="course-preview">Đánh giá: 4.5/5 (123 preview)</p>
                         <p class="course-price">${item.cost.toLocaleString()} VNĐ</p>
                         <p class="course-desc">${item.shortDesc ? item.shortDesc : 'Kho đề miễn phí gần 1000 đề thi IELTS. Tính năng luyện thi trực tiếp trên Test24h.vn. Xem lại kết quả và lịch sử làm bài'}</p>
-                    </div>   
-                `
-            );
+                        </div>   
+                    `
+                );
+            }
         })
     );
 
@@ -138,14 +141,18 @@ jQuery(document).ready(function($) {
     categoriesCourse.map((item, index) => {
         $(`.course-${item.slug}`).click(function() {
             $(".courses-category").empty();   
-            let nameCourse = item.slug;
-            if (nameCourse === 'ielts') {
-                getCourse(coursesIELTS, 'ielts');
-            } else if(nameCourse === 'sat-1') {
-                getCourse(coursesSAT1, 'sat-1');
-            } else if(nameCourse === 'sat-2') {
-                getCourse(coursesSAT2, 'sat-2');
-            }
+            getCourse(item.courses, item.slug);
+            
+            // let nameCourse = item.slug;
+            // if (nameCourse === 'ielts') {
+            //     getCourse(coursesIELTS, 'ielts');
+            // } else if(nameCourse === 'sat-1') {
+            //     getCourse(coursesSAT1, 'sat-1');
+            // } else if(nameCourse === 'pre-ap') {
+            //     getCourse(coursesPreAP, 'pre-ap');
+            // } else if(nameCourse === 'ap') {
+            //     getCourse(coursesAP, 'ap');
+            // }
         });
     });
 
