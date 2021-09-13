@@ -31,7 +31,7 @@ define('DB_USER', 'test24hadmin');
 define('DB_PASSWORD', 'test24h@123');
 
 /** MySQL hostname */
-define('DB_HOST', 'https://capnhatxuhuong.xyz/');
+define('DB_HOST', 'localhost');
 
 /** Database charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
