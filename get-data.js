@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
             $.ajax({
                 type: "post",
                 dataType: "json",
-                url : "https://capnhatxuhuong.xyz/wp-admin/admin-ajax.php ",
+                url : "https://test24h.vn/wp-admin/admin-ajax.php ",
                 data: {
                     action: "getpost",
                     cat_id: cat_id
@@ -241,7 +241,7 @@ jQuery(document).ready(function($) {
             $.ajax({
                 type: "post",
                 dataType: "json",
-                url : "https://capnhatxuhuong.xyz/wp-admin/admin-ajax.php ",
+                url : "https://test24h.vn/wp-admin/admin-ajax.php ",
                 data: {
                     action: "getpostbycategorychild",
                     cat_id: item.cat_ID
@@ -292,7 +292,7 @@ jQuery(document).ready(function($) {
                     <div class="post-item-ielts-listening">
                         <p class="post-item-name">${item.post_title}</p>
                         <div class="post-item-desc">
-                            <img src="https://capnhatxuhuong.xyz/wp-content/uploads/2021/08/Rectangle-264-1.jpg" />
+                            <img src="https://test24h.vn/wp-content/uploads/2021/08/Rectangle-264-1.jpg" />
                             <p>${item.post_title}</p>
                         </div>
                         <a href="${item.guid}" class="post-item-read-more">Chi tiết</a>
@@ -313,9 +313,9 @@ jQuery(document).ready(function($) {
 
     $('.post-pagination').append(
         `
-            ${ +num_page === 1 ? '' : `<a href="https://capnhatxuhuong.xyz/ielts-listening/page/${+num_page - 1}" class="post-prev"><i class="fas fa-angle-left"></i> Prev</a>`}
+            ${ +num_page === 1 ? '' : `<a href="https://test24h.vn/ielts-listening/page/${+num_page - 1}" class="post-prev"><i class="fas fa-angle-left"></i> Prev</a>`}
             <p class="number-page">${num_page}</p>
-            ${ +num_page === php_data.paged.max_num_pages ? '' : `<a href="https://capnhatxuhuong.xyz/ielts-listening/page/${+num_page + 1}" class="post-next">Next <i class="fas fa-angle-right"></i></a>`}
+            ${ +num_page === php_data.paged.max_num_pages ? '' : `<a href="https://test24h.vn/ielts-listening/page/${+num_page + 1}" class="post-next">Next <i class="fas fa-angle-right"></i></a>`}
 
         `
     );

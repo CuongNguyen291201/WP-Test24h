@@ -1,6 +1,6 @@
 <?php
-define('WP_HOME', 'https://capnhatxuhuong.xyz/');
-define('WP_SITEURL', 'https://capnhatxuhuong.xyz/');
+define('WP_HOME', 'https://test24h.vn/');
+define('WP_SITEURL', 'https://test24h.vn/');
 /**
  * The base configuration for WordPress
  *

@@ -177,8 +177,8 @@ require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
 
 function load_js_assets()
 {
-	wp_enqueue_style('style', 'https://capnhatxuhuong.xyz/style.css');
-	wp_enqueue_script('get-data', 'https://capnhatxuhuong.xyz/get-data.js', array('jquery'), '', false);
+	wp_enqueue_style('style', 'https://test24h.vn/style.css');
+	wp_enqueue_script('get-data', 'https://test24h.vn/get-data.js', array('jquery'), '', false);
 
 	wp_enqueue_style('bs_css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css');
 	wp_enqueue_script('bs_script', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js');
